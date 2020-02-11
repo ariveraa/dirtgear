@@ -9,9 +9,9 @@ module.exports = {
         if(user){ 
             return res.status(400).send('Username taken')
         }
-        let salt = bcrypt.getSaltSync(10); 
+        let salt = bcrypt.genSaltSync(10); 
         let hash = bcrypt.hashSync(password, salt); 
-        let [newUser] = db.create_profile(username, hash, phoneNumber); 
+        let [newUser] = await db.create_profile(username, hash, phoneNumber); 
         req.session.user = newUser; 
         res.status(201).send(req.session.user); 
     },
@@ -29,7 +29,7 @@ module.exports = {
         }
         delete user.password; 
         req.session.user = user; 
-        req.status(202).send(req.session.user); 
+        res.status(202).send(req.session.user); 
     }, 
 
     logout: async(req,res) => { 

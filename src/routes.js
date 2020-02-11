@@ -13,6 +13,6 @@ export default(
         <Route path = '/auth' component = {Auth} />
         <Route path  ='/new' component = {Form} />
         <Route path = '/post/:id' component = {Post} />
-        <Route path = '/user/:id' component = {UserProfile} />
+        <Route path = '/user' component = {UserProfile} />
     </Switch>
 )
