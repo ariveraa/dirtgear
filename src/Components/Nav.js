@@ -25,7 +25,7 @@ const Nav = (props) => {
                         <div className = 'menu'> 
                             <span onClick = {authSelect}>Login/Register</span>
                             <span >Profile</span>
-                            <span onClick = {()=> }>Add Post</span>
+                            <span onClick = {addSelect}>Add Post</span>
                             <span>About</span>
                         </div>
                     ): null }

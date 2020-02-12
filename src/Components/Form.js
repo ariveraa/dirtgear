@@ -1,19 +1,45 @@
 import React, {useState} from 'react';
-import DayPicker, { DateUtils } from 'react-day-picker';
-import 'react-day-picker/lib/style.css';
+import Calendar from './Calendar'; 
+
+
  
 const Form = ()  => { 
-   
+    const[make, setMake] = useState('')
+    const[model,setModel] = useState('')
+    const[hours, setHours] = useState('')
+    const[description, setDescription] = useState('')
+
         return(
             <div className = 'Form'>
-                <input placeholder = 'Make'/>
-                <input placeholder = 'Model'/>
-                <input placeholder = 'Hours'/>
+                <p>Make:</p>
+                <input 
+                placeholder = 'Enter Make'
+                value = {make}
+                onChange = {(e) => setMake(e.target.value)}
+                />
+                <p>Model:</p>
+                <input 
+                placeholder = 'Enter Model'
+                value = {model}
+                onChange = {(e) => setModel(e.target.value)}
+                />
+                <p>Hours:</p>
+                <input 
+                placeholder = 'Enter Hours'
+                value = {hours}
+                onChange = {(e) => setHours(e.target.value)}
+                />
                 {/* use amazon s3 to enter pics here */}
-                <input placeholder = 'Description' /> 
+                <p>Description:</p>
+                <input 
+                placeholder = 'Enter Description' 
+                value = {description}
+                onChange = {(e) => setDescription(e.target.value)}
+                /> 
                 {/* use google maps to get location here */}
-                
-
+                <Calendar />
+           
+                <button>Post</button>
             </div>
         )
     
