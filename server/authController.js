@@ -21,7 +21,7 @@ module.exports = {
 
         let [user] = await db.check_username(username); 
         if(!user){
-            return res.status(400).send('username not found'); 
+            return res.status(400).send('username not found');
         }
         let authenticated = bcrypt.compareSync(password, user.password); 
         if(!authenticated){ 
@@ -32,7 +32,7 @@ module.exports = {
         res.status(202).send(req.session.user); 
     }, 
 
-    logout: async(req,res) => { 
+    logout: (req,res) => { 
         req.session.destroy(); 
         res.sendStatus(200); 
     }, 

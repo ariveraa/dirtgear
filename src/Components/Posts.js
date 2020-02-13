@@ -1,12 +1,29 @@
-import React, {useState} from 'react'; 
+import React, {useEffect} from 'react'; 
+import {connect} from 'react-redux'; 
+import {getAllPost} from './Ducks/postsDisplayReducer';
+import Post from './Post.js'; 
 
-const Posts = () => { 
+const Posts = (props) => { 
 
+    useEffect(()=> {props.getAllPost()},[])
+ 
     return(
         <div> 
-            Posts
+            {props.posts.map(element =>{ 
+                return(
+                    <Post  
+                        info = {element}
+                        key = {element.id}
+                    />
+                )
+            })}
         </div>
     )
 }
 
-export default Posts; 
+function mapStateToProps(state){ 
+    return{posts:state.postsDisplayReducer.posts}
+  
+}
+
+export default connect(mapStateToProps, {getAllPost})(Posts); 

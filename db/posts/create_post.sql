@@ -1,8 +1,9 @@
-incert into posts(
+insert into posts(
     pro_id,
     make, 
     model, 
     hours,
+    price,
     description, 
     aval_from, 
     aval_to
@@ -14,5 +15,6 @@ values(
     $4, 
     $5,
     $6,
-    $7
+    $7,
+    $8
 )

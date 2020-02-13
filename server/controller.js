@@ -1,15 +1,29 @@
 module.exports = { 
     addPost: async(req,res) => { 
         const db = req.app.get('db')
-        const {id} = req.session.user.pro_id
-        const{make, model, hours, description, aval_from, aval_to} = req.body
+        const {pro_id} = req.session.user
 
-        let [post] = await db.create_post([id, make, model, hours, description, aval_from, aval_to])
-        res.status(200).send(post)
+        let{make, model, hours,price, description, from, to} = req.body
+       
+
+        const format = (day) => {
+            day = JSON.stringify(day)
+            day = day.split('')
+            day = day.splice(0,11)
+            day= day.join('')
+            return day 
+        }
+        from = format(from); 
+        to = format(to); 
+       
+ 
+        let [post] = await db.posts.create_post([+pro_id, make, model, +hours, +price, description, from, to])
+        res.sendStatus(200)
     }, 
     getAllPosts : async(req,res) => { 
         const db = req.app.get('db')
-        let [posts] = await db.get_all(); 
+        let posts = await db.posts.get_all();
+        
         res.status(200).send(posts); 
     }, 
     getPost: async(req,res) => { 
@@ -23,10 +37,10 @@ module.exports = {
         const db = req.app.get('db')
         const {id} = req.session.user.pro_id
 
-        let [posts] = await db.get_user_post(id); 
+        let [posts] = await db.posts.get_user_post(id); 
         res.status(200).send(posts)
     }, 
-    delete: (req,res) => {
+    deletePost: (req,res) => {
         const db = req.app.get('db')
         const {id} = req.params
 

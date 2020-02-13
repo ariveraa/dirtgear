@@ -10,14 +10,14 @@ const Auth = (props) => {
     const login = () => { 
         axios.post('/auth/login', {username: usernameInput, password: passwordInput})
         .then(res => console.log('your logged in'),
-        props.history.push('/Dashboard'))
+        props.history.push('/'))
         .catch(err => console.log(err))
     }
 
     const register = () => { 
         axios.post('/auth/register', {username: usernameInput, password: passwordInput, phoneNumber: phoneNumber})
         .then(res => console.log('you have registered'),
-        props.history.push('/Dashboard'))
+        props.history.push('/'))
         .catch(err => console.log(err))
     }
 

@@ -1,25 +1,33 @@
 import React, {Component} from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+import {connect} from 'react-redux'; 
+import {getAvailability} from './Ducks/postReducer'; 
 
 
 class Calendar extends Component {
-  constructor(props){ 
-    super(props)
+  // constructor(props){ 
+  //   super(props)
 
-    this.state = this.getInitialState(); 
-  }
+  //   this.state = this.getInitialState(); 
+  // }
 
-  getInitialState =() => { 
-    return { 
-      from: undefined, 
-      to: undefined
-    }
-  }
+  // getInitialState =() => { 
+  //   return { 
+  //     from: undefined, 
+  //     to: undefined
+  //   }
+  // }
 
   handleDayClick  = day => { 
-    const range = DateUtils.addDayToRange(day, this.state)
+    const {availability} = this.props.post
+
+  
+    const range = DateUtils.addDayToRange(day, availability)
+    
+    // console.log(range)
     this.setState(range)
+    this.props.getAvailability(range)
   }
 
   handleResetClick(){ 
@@ -28,9 +36,9 @@ class Calendar extends Component {
 
 
   render(){ 
-    const {from, to} = this.state; 
+    const {from, to} = this.props.post.availability; 
     const modifiers = {start: from, end:to}; 
-    console.log(this.state)
+    // console.log(this.props)
     return (
       <div> 
         <p> 
@@ -68,4 +76,9 @@ class Calendar extends Component {
   } 
 }
 
-export default Calendar;
+function mapStateToProps(state){ 
+  return{post:state.postReducer.post}
+
+}
+
+export default connect(mapStateToProps,{getAvailability})(Calendar);

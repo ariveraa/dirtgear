@@ -10,8 +10,10 @@ create table posts(
 post_id serial primary key, 
 pro_id int references profiles(pro_id), 
 make varchar(50), 
+model varchar(50), 
 hours int, 
-discription varchar(1000),
+price float,
+description varchar(1000),
 aval_from date,
 aval_to date
 )
