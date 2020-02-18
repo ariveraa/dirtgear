@@ -15,5 +15,8 @@ hours int,
 price float,
 description varchar(1000),
 aval_from date,
-aval_to date
+aval_to date, 
+photo_1 varchar(1000), 
+photo_2 varchar(1000), 
+photo_3 varchar(1000)
 )

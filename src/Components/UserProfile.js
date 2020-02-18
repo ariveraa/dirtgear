@@ -5,7 +5,7 @@ import Post from './Post';
 
 const UserProfile = (props) => { 
 
-    useEffect(() => {
+    useEffect((props) => {
         props.getProPosts()
     }, [])
     console.log(props.post)

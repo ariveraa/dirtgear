@@ -6,7 +6,10 @@ insert into posts(
     price,
     description, 
     aval_from, 
-    aval_to
+    aval_to, 
+    photo_1,
+    photo_2, 
+    photo_3
 )
 values(
     $1,
@@ -16,5 +19,8 @@ values(
     $5,
     $6,
     $7,
-    $8
+    $8,
+    $9,
+    $10,
+    $11
 )

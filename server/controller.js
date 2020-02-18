@@ -1,9 +1,10 @@
+const aws = require('aws-sdk'); 
 module.exports = { 
     addPost: async(req,res) => { 
         const db = req.app.get('db')
         const {pro_id} = req.session.user
 
-        let{make, model, hours,price, description, from, to} = req.body
+        let{make, model, hours,price, description, from, to, photo1, photo2, photo3} = req.body
        
 
         const format = (day) => {
@@ -17,7 +18,7 @@ module.exports = {
         to = format(to); 
        
  
-        let [post] = await db.posts.create_post([+pro_id, make, model, +hours, +price, description, from, to])
+        let [post] = await db.posts.create_post([+pro_id, make, model, +hours, +price, description, from, to, photo1, photo2, photo3])
         res.sendStatus(200)
     }, 
     getAllPosts : async(req,res) => { 
@@ -30,7 +31,7 @@ module.exports = {
         const db = req.app.get('db')
         const {id} = req.params
 
-        let [post] = await db.get_post(id); 
+        let [post] = await db.posts.get_post(id); 
         res.status(200).send(post)
     }, 
     getUserPost: async(req,res) => { 
@@ -47,6 +48,24 @@ module.exports = {
         db.delete_post(id)
         res.status(200).send('post deleted')
 
+    },
+
+    removeImage : (req, res) => { 
+        
+        const {key} =  req.params
+        
+        let s3 = new aws.S3(); 
+        let params = { 
+            Bucket:'dirtgearco', 
+            Key: key
+        }; 
+        s3.deleteObject(params, (err,data) => { 
+            if(err){ 
+                console.log(err); 
+               
+            }
+        
+        });
     }
 
 }

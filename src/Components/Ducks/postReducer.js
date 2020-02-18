@@ -1,4 +1,4 @@
-import axios from 'axios'; 
+
 
 const initialState ={ 
     post: {
@@ -8,8 +8,10 @@ const initialState ={
         price: '', 
         description: '', 
         location: '', 
-        availability: {from: '', to: ''} 
-
+        availability: {from: '', to: ''} , 
+        photo1: '', 
+        photo2: '', 
+        phot3: ''
     }
 }
 
@@ -20,6 +22,9 @@ const GET_PRICE = 'GET_PRICE';
 const GET_DESCRIPTION ='GET_DESCRIPTION'; 
 const GET_LOCATION ='GET_LOCATION'; 
 const GET_AVAILABILITY ='GET_AVAILABILITY';
+const GET_PHOTO1 = 'GET_PHOTO1'; 
+const GET_PHOTO2 = 'GET_PHOTO2'; 
+const GET_PHOTO3 = 'GET_PHOTO3'; 
 const RESET = 'RESET'; 
 
 
@@ -74,6 +79,27 @@ export function getAvailability(availability){
     }
 }
 
+export function getPhoto1(photo){ 
+    return{ 
+        type: GET_PHOTO1, 
+        payload: photo
+    }
+}
+
+export function getPhoto2(photo){ 
+    return{ 
+        type: GET_PHOTO2, 
+        payload: photo
+    }
+}
+
+export function getPhoto3(photo){ 
+    return{ 
+        type: GET_PHOTO3, 
+        payload: photo
+    }
+}
+
 export function reset(){
     return{ 
     type: RESET, 
@@ -102,6 +128,12 @@ export default function(state = initialState, action){
             return{...state, post:{...state.post, location:payload }}
         case GET_AVAILABILITY: 
             return{...state, post:{...state.post, availability:payload }}
+        case GET_PHOTO1: 
+            return{...state,post:{...state.post,photo1:payload}}
+        case GET_PHOTO2: 
+            return{...state,post:{...state.post,photo2:payload}}
+        case GET_PHOTO3: 
+            return{...state,post:{...state.post,photo3:payload}}
         case RESET: 
             return state = initialState
 
