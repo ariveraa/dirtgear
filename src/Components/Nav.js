@@ -33,11 +33,11 @@ const Nav = (props) => {
     }
     
     return(
-    <div>  
+    <div className  = 'top-container'>  
         <div className = 'Nav'> 
             <img src = '' alt = '' onClick = {()=> props.history.push('/user')}/>
             {props.profile.username ? (<h2>Welcome {props.profile.username} </h2>): 
-            (<h2>welcome To Dirtgear</h2>)}
+            (<h2>Welcome To Dirtgear</h2>)}
             
             <div onClick = {() => props.history.push('/')}>Home</div>
             <div onClick = {() => setDropdown(!dropdown)}>Menu</div>

@@ -10,10 +10,11 @@ const Posts = (props) => {
     return(
         <div> 
             {props.posts.map(element =>{ 
+               
                 return(
                     <Post  
                         info = {element}
-                        key = {element.id}
+                        key = {element.post_id}
                     />
                 )
             })}
