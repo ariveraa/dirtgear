@@ -23,36 +23,43 @@ const Auth = (props) => {
 
 
     return(
-        <div> 
-            
-            <p>Username: </p>
-            <input 
-                placeholder = 'Enter Username'
-                value = {usernameInput} 
-                onChange = {(e) => setUsernameInput(e.target.value)}
-            /> 
-            <p>Password:</p>
-            <input 
-            placeholder = 'Enter Password'
-            value = {passwordInput}
-            onChange = {(e) => setPasswordInput(e.target.value)}
-            />
-            {registration? (
-            <div> 
-                <p>PhoneNumber:</p>
-                <input 
-                    placeholder = 'Enter Phone Number' 
-                    value = {phoneNumber}
-                    onChange = {(e) => setPhoneNumber(e.target.value)}
-                />
-                <button onClick = {register}>Create Profile</button>
-                <button onClick = {() => setReg(!registration)}>Go To Login</button>
-            </div>):(
-                <div> 
-                    <button onClick = {login}>Login</button>
-                    <button onClick = {() => setReg(!registration)}>Registration</button>
+        <div className = 'auth'> 
+            <div className = 'auth-box'>
+                {registration? (<h2 className = 'auth-title'>REGISTRATION</h2>):
+                (<h2 className = 'auth-title'>LOGIN</h2>)}
+                <div className= 'auth-input'>
+                    <p className= 'auth-p'>Username: </p>
+                    <input className = 'input-box'
+                        placeholder = 'Enter Username'
+                        value = {usernameInput} 
+                        onChange = {(e) => setUsernameInput(e.target.value)}
+                    /> 
                 </div>
-            )}
+                <div className = 'auth-input'>
+                    <p className= 'auth-p'>Password: </p>
+                    <input className = 'input-box'
+                    placeholder = 'Enter Password'
+                    value = {passwordInput}
+                    onChange = {(e) => setPasswordInput(e.target.value)}
+                    />
+                </div>
+                {registration? (
+                <div> 
+                    <p>PhoneNumber:</p>
+                    <input 
+                        placeholder = 'Enter Phone Number' 
+                        value = {phoneNumber}
+                        onChange = {(e) => setPhoneNumber(e.target.value)}
+                    />
+                    <button className = 'auth-button' onClick = {register}>Create Profile</button>
+                    <button className = 'auth-button' onClick = {() => setReg(!registration)}>Go To Login</button>
+                </div>):(
+                    <div> 
+                        <button className = 'auth-button' onClick = {login}>Login</button>
+                        <button className = 'auth-button' onClick = {() => setReg(!registration)}>Registration</button>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

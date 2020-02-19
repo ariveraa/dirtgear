@@ -31,3 +31,49 @@ top-container{
   position: relative;
 }
 
+.auth{ 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 100vh;
+  
+}
+
+.auth-box{ 
+  width: 50%;
+  height: 50%;
+  box-shadow: 0 3px 5px 3px rgba(0,0,0,.3); 
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 7px;
+  flex-direction: column;
+  
+}
+
+.auth-input{ 
+  display: flex;
+  align-items: center;
+  
+}
+
+.auth-title{ 
+  font-size: 40px;
+  margin: 0;
+}
+
+.auth-p{
+  font-size: 25px;
+}
+
+.input-box{ 
+  height: 30px;
+  width: 300px;
+  
+}
+
+.auth-button{ 
+  height: 25px;
+  font-size: 15px;
+  margin-left: 50px;
+}

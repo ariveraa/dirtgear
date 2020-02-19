@@ -31,7 +31,7 @@ class Calendar extends Component {
   }
 
   handleResetClick(){ 
-    this.setState(this.getInitialState()); 
+    
   }
 
 
@@ -47,12 +47,7 @@ class Calendar extends Component {
           {from&&
           to &&
           `Selected from ${from.toLocaleDateString()} to
-          ${to.toLocaleDateString()}`}{' '}
-          {from && to && (
-            <button onClick = {this.handleResetClick}> 
-            reset
-            </button>
-          )}
+          ${to.toLocaleDateString()}`
           }
         </p>
         <DayPicker 

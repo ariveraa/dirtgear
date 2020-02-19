@@ -32,6 +32,7 @@ module.exports = {
         const {id} = req.params
 
         let [post] = await db.posts.get_post(id); 
+        delete post.password
         res.status(200).send(post)
     }, 
     getUserPost: async(req,res) => { 

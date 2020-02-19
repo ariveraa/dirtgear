@@ -7,10 +7,11 @@ const Posts = (props) => {
 
     useEffect(()=> {props.getAllPost()},[])
  
+
     return(
         <div> 
             {props.posts.map(element =>{ 
-               
+        
                 return(
                     <Post  
                         info = {element}
