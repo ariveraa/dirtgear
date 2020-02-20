@@ -41,7 +41,7 @@ module.exports = {
             res.status(200).send(req.session.user); 
         }
         else{ 
-            res.status(200).send('please login'); 
+            res.status(200).send(null); 
         }
     }
 }

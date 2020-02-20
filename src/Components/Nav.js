@@ -2,9 +2,9 @@ import React,{useState,useEffect}from 'react';
 import {withRouter} from 'react-router-dom'; 
 import axios from 'axios'; 
 import{connect} from 'react-redux'; 
-import{getProfile} from './Ducks/userReducer'; 
+import{resetProfile} from './Ducks/userReducer'; 
 import{getProPosts} from './Ducks/postsDisplayReducer'; 
-import useCheckLogin from './useCheckLogin'; 
+// import useCheckLogin from './useCheckLogin'; 
 
 
 const Nav = (props) => { 
@@ -26,7 +26,7 @@ const Nav = (props) => {
                 alert('No one is logged in')
             }
             else { 
-                axios.post('/auth/logout').then(res => alert('You have logged out'))
+                axios.post('/auth/logout').then(res => alert('You have logged out'), props.resetProfile())
             }
         })
     }
@@ -36,7 +36,7 @@ const Nav = (props) => {
         props.getProPosts();
     }
 
-    useEffect(() => {props.getProfile()},[])
+    
     useEffect(()=> console.log('hello'),[props.profile])
     return(
     <div className  = 'top-container'>  
@@ -66,4 +66,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps,{getProfile, getProPosts})(withRouter(Nav)); 
+export default connect(mapStateToProps,{resetProfile, getProPosts})(withRouter(Nav)); 

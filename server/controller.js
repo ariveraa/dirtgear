@@ -37,9 +37,10 @@ module.exports = {
     }, 
     getUserPost: async(req,res) => { 
         const db = req.app.get('db')
-        const {id} = req.session.user.pro_id
-
-        let [posts] = await db.posts.get_user_post(id); 
+        const {pro_id} = req.session.user
+        
+        let [posts] = await db.posts.get_user_post(pro_id); 
+       
         res.status(200).send(posts)
     }, 
     deletePost: (req,res) => {

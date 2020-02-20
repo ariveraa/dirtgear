@@ -19,7 +19,8 @@ export function getAllPost () {
 const GET_PRO_POSTS ='GET_PRO_POSTS'
 
 export function getProPosts(){ 
-    let posts = axios.get('/api/user').then (res => res.data).catch(err => err.message)
+    let posts = axios.get('/api/user').then (res => [res.data]).catch(err => err.message)
+   
     return{ 
         type:GET_PRO_POSTS, 
         payload: posts

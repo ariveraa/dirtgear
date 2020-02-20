@@ -7,7 +7,7 @@ import{getMake, getModel, getHours, getPrice, getDescription,
     getLocation,getPhoto1,getPhoto2,getPhoto3, reset} from './Ducks/postReducer';  
 import {v4 as randomString} from 'uuid'; 
 import Dropzone from 'react-dropzone'; 
-import { S3 } from 'aws-sdk';
+// import { S3 } from 'aws-sdk';
 
 
 

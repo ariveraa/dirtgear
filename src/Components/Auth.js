@@ -1,30 +1,36 @@
 import React, {useState} from 'react'; 
 import axios from 'axios'; 
 import useCheckLogin from './useCheckLogin'; 
+import{connect} from 'react-redux'; 
+import{setProfile} from './Ducks/userReducer'; 
 
 const Auth = (props) => { 
     const[usernameInput, setUsernameInput] = useState(''); 
     const[passwordInput, setPasswordInput] = useState(''); 
     const[phoneNumber, setPhoneNumber] = useState(''); 
     const[registration, setReg] = useState(false); 
-    const [user] = useCheckLogin(); 
+    // const [user] = useCheckLogin(); 
     
 
     const login = () => { 
-        if(user!== 'please login'){ 
-            alert(`${user.username} is logged in please logout to login into another user`)
-            props.history.push('/')
-        }
+        // if(!user){ 
+        //     alert(`${user.username} is logged in please logout to login into another user`)
+        //     props.history.push('/')
+        // }
         axios.post('/auth/login', {username: usernameInput, password: passwordInput})
-        .then(res => console.log('your logged in'),
-        props.history.push('/'))
+        .then(res => {console.log('your logged in')
+         props.setProfile(res.data) 
+        props.history.push('/')})
         .catch(err => console.log(err))
+        
+        
     }
 
     const register = () => { 
         axios.post('/auth/register', {username: usernameInput, password: passwordInput, phoneNumber: phoneNumber})
-        .then(res => console.log('you have registered'),
-        props.history.push('/'))
+        .then(res => {console.log('you have registered')
+        props.setProfile()
+        props.history.push('/')})
         .catch(err => console.log(err))
     }
 
@@ -71,4 +77,9 @@ const Auth = (props) => {
     )
 }
 
-export default Auth; 
+function mapStateToProps(state){
+    return{profile: state.userReducer.profile
+    }
+}
+
+export default connect(mapStateToProps,{setProfile})(Auth); 

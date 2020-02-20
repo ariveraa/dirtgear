@@ -1,12 +1,19 @@
-import React, {useEffect} from 'react'; 
+import React, {useState,useEffect} from 'react'; 
 import{connect} from 'react-redux'; 
 import{getProPosts} from './Ducks/postsDisplayReducer'; 
-import Posts from './Posts'; 
+import Post from './Posts'; 
 
 const UserProfile = (props) => { 
 
-    // useEffect((props) => {
-    //     props.getProPosts()
+
+    const loginCheck = () => {
+        props.history.push('/')
+        alert('Please Login')
+    }
+
+    // useEffect(() =>{props.profile.username ? setProPost( props.getProPosts())  :  loginCheck()
+    // },[])
+    
     console.log(props.posts)
     return(
         <div> 
@@ -16,16 +23,19 @@ const UserProfile = (props) => {
             </div>
             
 
-            {props.posts? <Posts /> : null}
+            {/* {props.posts? <Posts /> : null} */}
             
-            {/* {!props.posts? null :  (props.posts.map(element =>{ 
+            { props.posts.map(element =>{ 
                 return(
-                    <Post  
-                        info = {element}
-                        key = {element.post_id}
-                    />
+                    <div>
+                        <Post  
+                            info = {element}
+                            key = {element.post_id}
+                        />
+                        <button>Edit</button>
+                    </div>
                 )
-            }))} */}
+            })}
 
 
         </div>
