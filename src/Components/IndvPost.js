@@ -21,7 +21,7 @@ const IndvPosts = (props) => {
     
 
    
-    const {make,model,username, phone_number, profile_pic, photo1,photo2,photo3,hours, description, aval_from, aval_to} = postInfo
+    const {make,model,username, phone_number, profile_pic, price, photo1,photo2,photo3,hours, description, aval_from, aval_to} = postInfo
     console.log(postInfo)
     return(
         <div>
@@ -31,6 +31,7 @@ const IndvPosts = (props) => {
                 <p>Contact: {phone_number} </p>
                 <img src = {profile_pic} alt = '' />
             </div>
+            <p>${price} /day</p>
             <img src = {photo1} alt = ''/>
             <img src = {photo2} alt = ''/>
             <img src = {photo3} alt = ''/>

@@ -1,13 +1,20 @@
 import React, {useState} from 'react'; 
 import axios from 'axios'; 
+import useCheckLogin from './useCheckLogin'; 
 
 const Auth = (props) => { 
     const[usernameInput, setUsernameInput] = useState(''); 
     const[passwordInput, setPasswordInput] = useState(''); 
     const[phoneNumber, setPhoneNumber] = useState(''); 
     const[registration, setReg] = useState(false); 
+    const [user] = useCheckLogin(); 
     
+
     const login = () => { 
+        if(user!== 'please login'){ 
+            alert(`${user.username} is logged in please logout to login into another user`)
+            props.history.push('/')
+        }
         axios.post('/auth/login', {username: usernameInput, password: passwordInput})
         .then(res => console.log('your logged in'),
         props.history.push('/'))

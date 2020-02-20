@@ -1,10 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap"); 
+
 .Nav{
-  height: 10%;
+  height: 15%;
   background-color: black;
   display: flex;
   justify-content: space-around;
   align-items: center;
   color: white ; 
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.nav-title{ 
+  margin-left: 0px;
 }
 
 .menu{ 
@@ -17,18 +25,46 @@
   position: absolute;
   top: 10%;
   right: 10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 span{ 
   border-radius: 5px;
   border:3px dimgray ;
   padding: 5px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.3)
+  box-shadow: 0 3px 5px 3px rgba(0,0,0,.3); 
   
 }
 
 top-container{ 
   position: relative;
+
+}
+
+.search-bar{ 
+  width: 50%;
+  height: 35px;
+  
+  margin: 20px;
+  margin-left: 275px;
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
+  
+}
+
+.search-input{ 
+  height: 70%;
+  width: 500px;
+ 
+}
+
+.search-button{ 
+  height: 60%;
+  font-size: 15px;
+  border-color: black;
+  border-radius: 5px;
+  margin-left: 20px;
 }
 
 .auth{ 
@@ -36,7 +72,7 @@ top-container{
   justify-content: center; 
   align-items: center;
   height: 100vh;
-  
+  font-family: 'Roboto', sans-serif;
 }
 
 .auth-box{ 
@@ -69,11 +105,13 @@ top-container{
 .input-box{ 
   height: 30px;
   width: 300px;
-  
+  border-radius: 5px;
+  box-shadow: 0 3px 2px 0 rgba(0,0,0,.3); 
 }
 
 .auth-button{ 
   height: 25px;
   font-size: 15px;
   margin-left: 50px;
+  box-shadow: 0 3px 3px 1px rgba(0,0,0,.3); 
 }

@@ -1,7 +1,10 @@
-import React,{useState}from 'react'; 
+import React,{useState,useEffect}from 'react'; 
 import {withRouter} from 'react-router-dom'; 
 import axios from 'axios'; 
 import{connect} from 'react-redux'; 
+import{getProfile} from './Ducks/userReducer'; 
+import{getProPosts} from './Ducks/postsDisplayReducer'; 
+import useCheckLogin from './useCheckLogin'; 
 
 
 const Nav = (props) => { 
@@ -30,14 +33,17 @@ const Nav = (props) => {
     const profileSelect = () =>{ 
         props.history.push('/user')
         setDropdown(!dropdown)
+        props.getProPosts();
     }
-    
+
+    useEffect(() => {props.getProfile()},[])
+    useEffect(()=> console.log('hello'),[props.profile])
     return(
     <div className  = 'top-container'>  
         <div className = 'Nav'> 
-            <img src = '' alt = '' onClick = {()=> props.history.push('/user')}/>
-            {props.profile.username ? (<h2>Welcome {props.profile.username} </h2>): 
-            (<h2>Welcome To Dirtgear</h2>)}
+            {/* <img src = '' alt = '' onClick = {()=> props.history.push('/user')}/> */}
+            {props.profile.username ? (<h2 className = 'nav-title'>Welcome {props.profile.username} </h2>): 
+            (<h2 className = 'nav-title' >Welcome To Dirtgear</h2>)}
             
             <div onClick = {() => props.history.push('/')}>Home</div>
             <div onClick = {() => setDropdown(!dropdown)}>Menu</div>
@@ -47,7 +53,6 @@ const Nav = (props) => {
                             <span onClick = {authSelect}>Login/Register</span>
                             <span onClick = {profileSelect}>Profile</span>
                             <span onClick = {addSelect}>Add Post</span>
-                            <span>About</span>
                             <span onClick = {logoutSelect}>Logout</span>
                         </div>
                     ): null }
@@ -56,7 +61,9 @@ const Nav = (props) => {
 }
 
 function mapStateToProps(state){
-    return{profile: state.userReducer.profile}
+    return{profile: state.userReducer.profile,
+        posts: state.postsDisplayReducer.posts
+    }
 }
 
-export default connect(mapStateToProps)(withRouter(Nav)); 
+export default connect(mapStateToProps,{getProfile, getProPosts})(withRouter(Nav)); 

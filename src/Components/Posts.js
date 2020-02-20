@@ -10,7 +10,7 @@ const Posts = (props) => {
 
     return(
         <div> 
-            {props.posts.map(element =>{ 
+            {props.posts && props.posts.map(element =>{ 
         
                 return(
                     <Post  
