@@ -1,0 +1,34 @@
+.profile-posts{ 
+    width: 80vw;
+    height: 100vh;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    // justify-content: space-around;
+    box-shadow: $box-shade;
+    font-family: $font-style;
+    background-color: rgba($color: white, $alpha: .9);
+}
+
+.pro-posts{ 
+    display: flex;
+}
+
+.profile-post-button-box{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 15px;
+
+
+}
+
+.profile-buttons{ 
+    background-color: white;
+    box-shadow: $box-shade;
+    font-size: 20px;
+    width: 70px;
+}

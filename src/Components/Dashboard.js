@@ -20,7 +20,7 @@ const Dashboard = (props) => {
             </div>
             
             <div className = 'rentals'> 
-                <p>Available For Rent</p>
+                <p className = 'rental-title'>Available For Rent</p>
                 <Posts /> 
             </div> 
             {/* googlemaps here */}

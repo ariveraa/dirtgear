@@ -25,7 +25,7 @@ class Calendar extends Component {
   
     const range = DateUtils.addDayToRange(day, availability)
     
-    // console.log(range)
+    console.log(range)
     this.setState(range)
     this.props.getAvailability(range)
   }
@@ -39,11 +39,12 @@ class Calendar extends Component {
     const {from, to} = this.props.post.availability; 
     const modifiers = {start: from, end:to}; 
     // console.log(this.props)
+    // console.log(this.props.post.availability.from)
     return (
-      <div> 
+      <div className = 'calendar'> 
         <p> 
-          {!from && !to && 'please select the first day'}
-          {from && !to && 'please select the last day'}
+          {!from && !to && 'Please select the first day'}
+          {from && !to && 'Please select the last day'}
           {from&&
           to &&
           `Selected from ${from.toLocaleDateString()} to

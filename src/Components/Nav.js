@@ -50,10 +50,10 @@ const Nav = (props) => {
         </div>
                     {dropdown ? (
                         <div className = 'menu'> 
-                            <span onClick = {authSelect}>Login/Register</span>
-                            <span onClick = {profileSelect}>Profile</span>
-                            <span onClick = {addSelect}>Add Post</span>
-                            <span onClick = {logoutSelect}>Logout</span>
+                            <span className='menu-button' onClick = {authSelect}>Login/Register</span>
+                            <span className='menu-button' onClick = {profileSelect}>Profile</span>
+                            <span className='menu-button' onClick = {addSelect}>Add Post</span>
+                            <span className='menu-button' onClick = {logoutSelect}>Logout</span>
                         </div>
                     ): null }
      </div>  

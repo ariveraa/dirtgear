@@ -41,15 +41,20 @@ const Post = (props) => {
 
   
     return(
-        <div className = 'post' onClick = {() => props.history.push(`/post/${props.info.post_id}`)}>
-            <h2 className= 'post-title'>{props.info.make} {props.info.model} </h2> 
-            <p>${props.info.price} /day</p>
-            <div className = 'post-pics'>
-                <p onClick = {previousImg}>{'<'}</p> 
-                <img src = {displayedImg} alt= '' />
-                <p onClick = {nextImg} >{'>'}</p>
+        <div className = 'post'>
+            <div className = 'dash-post-info' 
+            onClick = {() => props.history.push(`/post/${props.info.post_id}`)}>
+                <h2 className= 'post-title'>{props.info.make} {props.info.model} </h2> 
+                <p>Machine Hours:  {props.info.hours}</p>
+                <p>${props.info.price} /day</p>
+                
             </div>
-            <p>{props.info.location}</p>
+            
+            <div className = 'dashboard-post-pics'>
+                <p className = 'pic-arrows' onClick = {previousImg}>{'<'}</p> 
+                <img className = 'dashboard-post-img' src = {displayedImg} alt= '' />
+                <p className = 'pic-arrows' onClick = {nextImg} >{'>'}</p>
+            </div>
             
         </div>
     )

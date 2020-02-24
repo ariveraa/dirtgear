@@ -1,0 +1,22 @@
+@import 'globals'; 
+
+//variables
+
+@import 'variables'; 
+
+//functions 
+
+@import  'functions'; 
+
+//mixins
+
+@import 'mixins'; 
+
+// components
+
+@import'./components/dashboard'; 
+@import './components/form'; 
+@import'./components/post'; 
+@import'./components/individualPost'; 
+@import'./components/profilePost'; 
+@import './components/calendar'; 

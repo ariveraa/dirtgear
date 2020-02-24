@@ -1,0 +1,53 @@
+.form{ 
+    width: 80vw;
+    height: 140vh;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    // justify-content: space-around;
+    box-shadow: $box-shade;
+    font-family: $font-style;
+    background-color: rgba($color: white, $alpha: .9);
+    overflow: scroll;
+    box-shadow: $box-shade;
+}
+
+.form-inputs{ 
+    display: flex;
+    margin: 20px;
+    align-items: center;
+    
+}
+
+.make-model{ 
+    display: flex;  
+}
+.hours-price{ 
+    display: flex;
+}
+
+.entry-box{ 
+    height: 50%;
+    width: 300px;
+   
+}
+
+.description-form-input{ 
+  display: flex;
+
+}
+
+.description-entry-box{
+    height: 100px;
+    width: 400px;
+
+}
+
+.create-post-pics{ 
+    display: flex;
+    width: 100%; 
+    height: 40vh;
+    justify-content: space-between;
+}

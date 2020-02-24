@@ -1,0 +1,24 @@
+.individual-post{ 
+    height: 100vh;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: $box-shade;
+    font-family: $font-style;
+    font-size: 20px;
+    background-color: rgba($color: white, $alpha: .8);
+    
+}
+
+.post-pics-box{ 
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.post-pics{ 
+    width: 30%;
+    height: autos;
+    border-radius: 5px;
+}

@@ -1,7 +1,9 @@
 import React, {useState,useEffect} from 'react'; 
+import axios from 'axios' ; 
 import{connect} from 'react-redux'; 
 import{getProPosts} from './Ducks/postsDisplayReducer'; 
-import Post from './Posts'; 
+
+import Post from './Post'; 
 
 const UserProfile = (props) => { 
 
@@ -11,10 +13,12 @@ const UserProfile = (props) => {
         alert('Please Login')
     }
 
-    // useEffect(() =>{props.profile.username ? setProPost( props.getProPosts())  :  loginCheck()
-    // },[])
+
+
+    useEffect(() =>{props.profile.username ? console.log('logged in')  :  loginCheck()
+},[])
     
-    console.log(props.posts)
+    // console.log(props.posts)
     return(
         <div> 
             <div className = 'profile-info'> 
@@ -22,21 +26,21 @@ const UserProfile = (props) => {
             <img src = {props.profile.profilePic} alt = 'profile pic'/>
             </div>
             
-
-            {/* {props.posts? <Posts /> : null} */}
-            
+            <div className = 'profile-posts'>
             { props.posts.map(element =>{ 
                 return(
-                    <div>
+                    
+                    <div className = 'pro-posts'>
                         <Post  
-                            info = {element}
                             key = {element.post_id}
+                            info = {element}
                         />
-                        <button>Edit</button>
+
+
                     </div>
                 )
             })}
-
+            </div>
 
         </div>
     )
@@ -44,9 +48,11 @@ const UserProfile = (props) => {
 
 function mapStateToProps(state){ 
     return{profile:state.userReducer.profile, 
-        posts: state.postsDisplayReducer.posts
+        posts: state.postsDisplayReducer.posts, 
+        post: state.postReducer.post, 
+        id: state.postReducer.id
     }
   
 }
 
-export default connect(mapStateToProps, {getProPosts} ) (UserProfile); 
+export default connect(mapStateToProps, null ) (UserProfile); 

@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+h3 {
+  font-size: 30px; }
+
+span {
+  background-color: white; }
+
+.auth-box {
+  background-color: rgba(255, 255, 255, 0.8); }
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.rentals {
+  width: 80vw;
+  height: 100vh;
+  border-radius: 5px;
+  overflow: scroll;
+  box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8); }
+
+.rental-title {
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder; }
+
+.form {
+  width: 80vw;
+  height: 140vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.3);
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow: scroll;
+  box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.3); }
+
+.form-inputs {
+  display: flex;
+  margin: 20px;
+  align-items: center; }
+
+.make-model {
+  display: flex; }
+
+.hours-price {
+  display: flex; }
+
+.entry-box {
+  height: 50%;
+  width: 300px; }
+
+.description-form-input {
+  display: flex; }
+
+.description-entry-box {
+  height: 100px;
+  width: 400px; }
+
+.create-post-pics {
+  display: flex;
+  width: 100%;
+  height: 40vh;
+  justify-content: space-between; }
+
+.post {
+  width: 60vw;
+  height: auto;
+  display: flex;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(255, 255, 255, 0.8); }
+
+.dash-post-info {
+  width: 20vw;
+  padding: 25px; }
+
+.post-title {
+  margin: 0; }
+
+.dashboard-post-img {
+  width: 300px;
+  height: 250px; }
+
+.dashboard-post-pics {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 90%;
+  height: 100%;
+  margin-left: 0; }
+
+.pic-arrows {
+  height: 300px;
+  width: 50px;
+  font-size: 20px;
+  font-weight: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0; }
+
+.individual-post {
+  height: 100vh;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.3);
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.8); }
+
+.post-pics-box {
+  display: flex;
+  justify-content: space-around; }
+
+.post-pics {
+  width: 30%;
+  height: autos;
+  border-radius: 5px; }
+
+.profile-posts {
+  width: 80vw;
+  height: 100vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.3);
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(255, 255, 255, 0.9); }
+
+.pro-posts {
+  display: flex; }
+
+.profile-post-button-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 15px; }
+
+.profile-buttons {
+  background-color: white;
+  box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.3);
+  font-size: 20px;
+  width: 70px; }
+
+.calendar {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  margin: 20px;
+  box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.3);
+  padding: 10px; }
