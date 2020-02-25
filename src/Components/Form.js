@@ -7,6 +7,9 @@ import{getMake, getModel, getHours, getPrice, getDescription,
     getLocation,getPhoto1,getPhoto2,getPhoto3, setEdit, reset} from './Ducks/postReducer';  
 import {v4 as randomString} from 'uuid'; 
 import Dropzone from 'react-dropzone'; 
+import noImage from '../noImage.png';
+import swal from 'sweetalert2'; 
+
 // import { S3 } from 'aws-sdk';
 
 
@@ -18,11 +21,16 @@ const Form = (props)  => {
     const[isUploading, setUploading] = useState(false); 
 
 
-    useEffect((props) =>{ 
+    useEffect(() =>{ 
         axios.get('/auth/check').then(res => { 
-            if(res.data === 'please login'){
+            if(!res.data ){
                 props.history.push('/auth')
-                alert('Log in to create a post')
+                swal.fire({
+                    title: 'Error!',
+                    text: 'Log In To Create A Post', 
+                    icon:'error',
+                    confirmButtonText: 'OK'
+                })
             }
         })
     },[]);
@@ -68,12 +76,18 @@ const Form = (props)  => {
         })
         .catch(err => { 
             setUploading(false); 
-            alert(err);
+            swal.fire({
+                title: 'Error!',
+                text: 'Photo Not Uploaded', 
+                icon:'error',
+                confirmButtonText: 'OK'
+            })
+            // alert(err);
             if(err.response.status === 403){ 
-                alert(`Your request for a signed URL failed with a status 403.`); 
+                console.log(`Your request for a signed URL failed with a status 403.`); 
             }
             else {
-                alert(`ERROR: ${err.status}\n ${err.stack}`);
+                console.log(`ERROR: ${err.status}\n ${err.stack}`);
             }
         })
     }
@@ -104,7 +118,7 @@ const Form = (props)  => {
         return(
             
             <div className = 'form'>
-                <h4>CREATE A NEW POST</h4>
+                <h4 className = 'form-title'>CREATE A NEW POST</h4>
                 <div className = 'make-model' >
                     <div className = 'form-inputs' > 
                         <p>Make:</p>
@@ -157,45 +171,47 @@ const Form = (props)  => {
                 <Calendar />
                 <div className = 'create-post-pics'>
                     <div className = 'pic-box' > 
-                        <img  src ={photo1} alt = 'upload pic' />
+                        {!photo1? (<img className= 'upload-preview' src = {noImage} />) : (<img className= 'upload-preview'  src ={photo1} alt = ''/>)  }
+                        
+                        
                         <Dropzone onDropAccepted = {(file) => getSignedRequest(file, 'photo1')} accept = 'image/*' multiple= {false} >
                             {({getRootProps, getInputProps}) => (
                                 <div  {...getRootProps()}>
                                     <input {...getInputProps()} />
-                                {isUploading ? <span>Loading...</span> : <span>Upload Picture</span>}
+                                {isUploading ? <span>Loading...</span> : <span className = 'dropzone'>Click Here to Upload Picture</span>}
                                 </div>
                             )}
                         </Dropzone>
-                    <button onClick = {() => removePhoto(photo1)}>remove picture</button>
+                    <button className = 'remove-picture' onClick = {() => removePhoto(photo1)}>Remove Picture</button>
                     </div>
                     <div className = 'pic-box' > 
-                    <img src ={photo2} alt = 'upload pic'/>
+                    {!photo2? (<img className= 'upload-preview' src = {noImage} />) : (<img className= 'upload-preview'  src ={photo2} alt = ''/>)}
                     <Dropzone onDropAccepted = {(file) => getSignedRequest(file, 'photo2')} accept = 'image/*' multiple= {false}>
                         {({getRootProps, getInputProps}) => (
                             <div  {...getRootProps()}>
                                 <input {...getInputProps()} />
-                            {isUploading ? <span>Loading...</span> : <span>Upload Picture</span>}
+                            {isUploading ? <span>Loading...</span> : <span className = 'dropzone' >Click Here to Upload Picture</span>}
                             </div>
                         )}
                     </Dropzone>
-                    <button onClick = {() => removePhoto(photo2)}>remove picture</button>
+                    <button className = 'remove-picture' onClick = {() => removePhoto(photo2)}>Remove Picture</button>
                     </div>
                     <div className = 'pic-box' > 
-                    <img src ={photo3} alt = 'upload pic' />
+                    {!photo3? (<img className= 'upload-preview' src = {noImage} />) : (<img className= 'upload-preview'  src ={photo3} alt = ''/>)}
                     <Dropzone onDropAccepted = {(file) => getSignedRequest(file, 'photo3')} accept = 'image/*' multiple= {false}>
                         {({getRootProps, getInputProps}) => (
                             <div  {...getRootProps()}>
                                 <input {...getInputProps()} />
-                            {isUploading ? <span>Loading...</span> : <span>Upload Picture</span>}
+                            {isUploading ? <span>Loading...</span> : <span className = 'dropzone' >Click Here to Upload Picture</span>}
                             </div>
                         )}
                     </Dropzone>
-                    <button onClick = {() => removePhoto(photo3)}>remove picture</button>
+                    <button className = 'remove-picture' onClick = {() => removePhoto(photo3)}>Remove Picture</button>
                     </div>
                 </div>
 
-               {props.edit ? <button onClick = {() => editPost(props.id, make,model, hours, description,location,availability.from, availability.to,photo1, photo2, photo3)}>Edit</button> : 
-               <button onClick ={() => addPost(make,model, hours, description,location,availability.from, availability.to,photo1, photo2, photo3)}>Post</button>}
+               {props.edit ? <button className= 'submit-button' onClick = {() => editPost(props.id, make,model, hours, description,location,availability.from, availability.to,photo1, photo2, photo3)}>Make Changes</button> : 
+               <button className= 'submit-button' onClick ={() => addPost(make,model, hours, description,location,availability.from, availability.to,photo1, photo2, photo3)}>Post</button>}
             </div>
         )
     

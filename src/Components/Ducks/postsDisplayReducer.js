@@ -3,7 +3,6 @@ import axios from 'axios';
 const initialState = { 
     posts: [],
     loading: false
-
 }
 
 
@@ -27,6 +26,16 @@ export function getProPosts(){
     }
 }
 
+const SEARCH_POSTS = 'SEARCH_POSTS'
+export function searchPosts(search){
+    let posts = axios.get(`/api/input`,{search}).then(res => console.log(res.data)).catch(err => err.message)
+    
+    return{ 
+        type: SEARCH_POSTS, 
+        payload: posts
+    }
+}
+
 
 
 export default function(state = initialState, action){ 
@@ -46,6 +55,13 @@ export default function(state = initialState, action){
         case GET_PRO_POSTS + '_FULFILLED': 
             return {...state, loading: false, posts:payload}
         case GET_PRO_POSTS + '_REJECTED': 
+            return{...state, loading: false}
+
+        case SEARCH_POSTS + '_PENDING': 
+            return {...state, loading: true}
+        case SEARCH_POSTS + '_FULFILLED': 
+            return {...state, loading: false, posts:payload}
+        case SEARCH_POSTS + '_REJECTED': 
             return{...state, loading: false}
        
         default: 

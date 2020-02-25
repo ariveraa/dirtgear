@@ -1,6 +1,5 @@
 import React, {useState} from 'react'; 
 import axios from 'axios'; 
-import useCheckLogin from './useCheckLogin'; 
 import{connect} from 'react-redux'; 
 import{setProfile} from './Ducks/userReducer'; 
 

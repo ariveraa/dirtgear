@@ -62,6 +62,13 @@ module.exports = {
        
         res.status(200).send(posts)
     }, 
+    searchPosts: async(req,res) => { 
+        const db = req.app.get('db')
+        const {search} = req.body
+
+        let posts = await db.posts.search_posts(search)
+        res.status(200).send(posts);
+    },
     deletePost: (req,res) => {
         const db = req.app.get('db')
         const {id} = req.params

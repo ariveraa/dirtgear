@@ -1,16 +1,20 @@
-import React, {useState,useEffect} from 'react'; 
-import axios from 'axios' ; 
+import React, {useEffect} from 'react'; 
 import{connect} from 'react-redux'; 
-import{getProPosts} from './Ducks/postsDisplayReducer'; 
-
+import swal from 'sweetalert2';
 import Post from './Post'; 
 
 const UserProfile = (props) => { 
 
 
     const loginCheck = () => {
+        swal.fire({
+            title: 'Error',
+            text: 'Please Login', 
+            icon:'error',
+            confirmButtonText: 'OK'
+        })
         props.history.push('/')
-        alert('Please Login')
+
     }
 
 

@@ -103,6 +103,7 @@ top-container{
 .auth-input{ 
   display: flex;
   align-items: center;
+ 
   
 }
 
@@ -120,6 +121,7 @@ top-container{
   width: 300px;
   border-radius: 5px;
   box-shadow: 0 3px 2px 0 rgba(0,0,0,.3); 
+  font-size: 14px;
 }
 
 .auth-button{ 

@@ -4,6 +4,7 @@ import axios from 'axios';
 import{getMake, getModel, getHours, getPrice, getDescription, 
     getLocation,getPhoto1,getPhoto2,getPhoto3, setEdit, getAvailability, getId} from './Ducks/postReducer'; 
 import{getProPosts} from './Ducks/postsDisplayReducer'; 
+import swal from 'sweetalert2'; 
 
 
 const IndvPosts = (props) => { 
@@ -36,7 +37,13 @@ const IndvPosts = (props) => {
     }
 
     const handleDelete = (post_id) => { 
-        axios.delete(`/api/post/${post_id}`).then(res => alert(res.data))
+        axios.delete(`/api/post/${post_id}`).then(res => 
+            swal.fire({
+            title: 'Deleted',
+            text: 'Post Successfully Deleted', 
+            icon:'success',
+            confirmButtonText: 'OK'
+        }))
         props.getProPosts()
         props.history.push('/user')
     }

@@ -4,6 +4,7 @@ import axios from 'axios';
 import{connect} from 'react-redux'; 
 import{resetProfile} from './Ducks/userReducer'; 
 import{getProPosts} from './Ducks/postsDisplayReducer'; 
+import swal from 'sweetalert2'; 
 // import useCheckLogin from './useCheckLogin'; 
 
 
@@ -22,11 +23,22 @@ const Nav = (props) => {
     }
     const logoutSelect = () => { 
         axios.get('/auth/check').then(res => { 
-            if(res.data === 'please login'){
-                alert('No one is logged in')
+            if(!res.data ){
+                swal.fire({
+                    title: 'Error',
+                    text: 'No One is Logged In', 
+                    icon:'error',
+                    confirmButtonText: 'OK'
+                })
             }
             else { 
-                axios.post('/auth/logout').then(res => alert('You have logged out'), props.resetProfile())
+                axios.post('/auth/logout').then(res =>                 
+                    swal.fire({
+                    title: 'Success',
+                    text: 'You Have Logged Out', 
+                    icon:'Success',
+                    confirmButtonText: 'OK'
+                }), props.resetProfile())
             }
         })
     }
@@ -37,7 +49,7 @@ const Nav = (props) => {
     }
 
     
-    useEffect(()=> console.log('hello'),[props.profile])
+    useEffect(()=> console.log(''),[props.profile])
     return(
     <div className  = 'top-container'>  
         <div className = 'Nav'> 
