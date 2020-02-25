@@ -70,7 +70,7 @@ app.post('/api/post', ctrl.addPost);
 app.get('/api/posts', ctrl.getAllPosts); 
 app.get('/api/post/:id', ctrl.getPost); 
 app.get('/api/user', ctrl.getUserPost);
-app.get('/api/input',ctrl.searchPosts)
+app.post('/api/input',ctrl.searchPosts)
 app.put('/api/post/:id', ctrl.editPost); 
 app.delete('/api/post/:id', ctrl.deletePost); 
 app.delete('/api/photo/:key', ctrl.removeImage); 

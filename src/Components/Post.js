@@ -51,7 +51,7 @@ const Post = (props) => {
             </div>
             
             <div className = 'dashboard-post-pics'>
-                <p className = 'pic-arrows' onClick = {previousImg}>{'<'}</p> 
+                <p className = 'pic-arrows' onClick = {previousImg}> {'<'}</p> 
                 <img className = 'dashboard-post-img' src = {displayedImg} alt= '' />
                 <p className = 'pic-arrows' onClick = {nextImg} >{'>'}</p>
             </div>

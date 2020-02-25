@@ -10,6 +10,7 @@
     box-shadow: $box-shade;
     font-family: $font-style;
     background-color: rgba($color: white, $alpha: .9);
+    overflow: scroll;
 }
 
 .pro-posts{ 

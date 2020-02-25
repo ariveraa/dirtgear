@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios'; 
 import{connect} from 'react-redux'; 
 import{setProfile} from './Ducks/userReducer'; 
+import swal from 'sweetalert2'; 
 
 const Auth = (props) => { 
     const[usernameInput, setUsernameInput] = useState(''); 
@@ -27,8 +28,14 @@ const Auth = (props) => {
 
     const register = () => { 
         axios.post('/auth/register', {username: usernameInput, password: passwordInput, phoneNumber: phoneNumber})
-        .then(res => {console.log('you have registered')
-        props.setProfile()
+        .then(res => {
+        swal.fire({
+            title: 'Welcome',
+            text: 'Thank You for Registering', 
+            icon:'Success',
+            confirmButtonText: 'OK'
+        })
+        props.setProfile(res.data)
         props.history.push('/')})
         .catch(err => console.log(err))
     }
@@ -56,16 +63,24 @@ const Auth = (props) => {
                     />
                 </div>
                 {registration? (
-                <div> 
-                    <p>PhoneNumber:</p>
+                <div className = 'auth-phonenumber'> 
+                <div className = 'auth-input'> 
+                    <p className= 'auth-p'>PhoneNumber:</p>
                     <input 
+                        className = 'input-box'
                         placeholder = 'Enter Phone Number' 
                         value = {phoneNumber}
                         onChange = {(e) => setPhoneNumber(e.target.value)}
                     />
-                    <button className = 'auth-button' onClick = {register}>Create Profile</button>
+                    
+
+                </div>
+                    <div> 
+                     <button className = 'auth-button' onClick = {register}>Create Profile</button>
                     <button className = 'auth-button' onClick = {() => setReg(!registration)}>Go To Login</button>
-                </div>):(
+                    </div>
+                </div>
+                ):(
                     <div> 
                         <button className = 'auth-button' onClick = {login}>Login</button>
                         <button className = 'auth-button' onClick = {() => setReg(!registration)}>Registration</button>

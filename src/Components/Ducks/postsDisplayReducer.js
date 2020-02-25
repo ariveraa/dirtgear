@@ -28,7 +28,8 @@ export function getProPosts(){
 
 const SEARCH_POSTS = 'SEARCH_POSTS'
 export function searchPosts(search){
-    let posts = axios.get(`/api/input`,{search}).then(res => console.log(res.data)).catch(err => err.message)
+    
+    let posts = axios.post(`/api/input`,{search}).then(res => res.data).catch(err => err.message)
     
     return{ 
         type: SEARCH_POSTS, 

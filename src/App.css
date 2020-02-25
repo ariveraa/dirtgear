@@ -54,7 +54,7 @@ top-container{
 }
 
 .search-bar{ 
-  width: 50%;
+  width: 80%;
   height: 35px;
   
   margin: 20px;
@@ -89,11 +89,11 @@ top-container{
 }
 
 .auth-box{ 
-  width: 50vw;
-  height: 50%;
+  width: 60vw;
+  height: 60%;
   box-shadow: 0 3px 5px 3px rgba(0,0,0,.3); 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   border-radius: 7px;
   flex-direction: column;
@@ -129,4 +129,11 @@ top-container{
   font-size: 15px;
   margin-left: 50px;
   box-shadow: 0 3px 3px 1px rgba(0,0,0,.3); 
+  border-radius: 5px;
+}
+
+.auth-phonenumber{
+display: flex;
+align-items: center;
+flex-direction: column;
 }

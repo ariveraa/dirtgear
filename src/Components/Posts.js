@@ -16,11 +16,16 @@ const Posts = (props) => {
         console.log(props.posts)
     } 
 
+    const reset = () => { 
+        props.getAllPost()
+    }
+
     return(
-        <div> 
+        <div className = 'posts'> 
             <div className = 'search-bar'>
-                <input className = 'search-input' placeholder = 'What are you looking for?' {...search} />
+                <input className = 'search-input' placeholder = 'Enter Make, Model, or Username' {...search} />
                 <button className = 'search-button' onClick  = {() => searchPosts(search) }>Search</button> 
+                <button className='search-button' onClick = {reset}>Clear</button>
             </div>
 
             {props.posts && props.posts.map(element =>{ 

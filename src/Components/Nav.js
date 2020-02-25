@@ -41,11 +41,12 @@ const Nav = (props) => {
                 }), props.resetProfile())
             }
         })
+        setDropdown(!dropdown)
     }
     const profileSelect = () =>{ 
+        props.getProPosts();
         props.history.push('/user')
         setDropdown(!dropdown)
-        props.getProPosts();
     }
 
     
