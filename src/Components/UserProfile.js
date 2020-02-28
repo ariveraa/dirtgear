@@ -26,11 +26,12 @@ const UserProfile = (props) => {
     return(
         <div> 
             <div className = 'profile-info'> 
-            <h3>{props.profile.username}</h3>
-            <img src = {props.profile.profilePic} alt = 'profile pic'/>
+            
+            {/* <img src = {props.profile.profilePic} alt = 'profile pic'/> */}
             </div>
             
             <div className = 'profile-posts'>
+            <h3>Your Posts</h3>
             { props.posts.map(element =>{ 
                 return(
                     

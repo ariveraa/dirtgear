@@ -69,6 +69,26 @@ const Nav = (props) => {
                             <span className='menu-button' onClick = {logoutSelect}>Logout</span>
                         </div>
                     ): null }
+
+        <div className = 'mobile-nav' >
+            {props.profile.username ? (<h2 className = 'nav-title'>Welcome {props.profile.username} </h2>): 
+            (<h2 className = 'nav-title' >Welcome To Dirtgear</h2>)}
+            <div onClick = {() => setDropdown(!dropdown)}>Menu</div>
+        </div>
+
+        {dropdown ? (
+                        <div className = 'mobile-menu'> 
+                            <span className= 'menu-button' onClick = {() => props.history.push('/')}>Home</span>
+                            <span className='menu-button' onClick = {authSelect}>Login/Register</span>
+                            <span className='menu-button' onClick = {profileSelect}>Profile</span>
+                            <span className='menu-button' onClick = {addSelect}>Add Post</span>
+                            <span className='menu-button' onClick = {logoutSelect}>Logout</span>
+                        </div>
+                    ): null }
+
+
+
+                    
      </div>  
     )
 }

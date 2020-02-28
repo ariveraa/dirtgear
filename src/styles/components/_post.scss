@@ -51,3 +51,23 @@
 }
 
 
+@media(max-width: 380px){
+    .dashboard-post-img{ 
+        width: 150px;
+        height: 100px;
+    }
+
+    .dashboard-post-pics{
+        height: 100px;
+    }
+
+    .post{ 
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0;
+    }
+    .dash-post-info{ 
+        width: 100%;
+    }
+
+}

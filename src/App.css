@@ -48,6 +48,25 @@
   
 }
 
+.search-buttons{ 
+  display: flex;
+}
+
+.mobil-nav{ 
+  display: none; 
+}
+
+.mobil-menu{ 
+display: none;
+}
+
+.mobile-search-buttons{ 
+  display: none;
+}
+
+
+
+
 top-container{ 
   position: relative;
 
@@ -136,4 +155,101 @@ top-container{
 display: flex;
 align-items: center;
 flex-direction: column;
+}
+
+@media(max-width: 380px){
+  .Nav{
+    display: none;
+  }
+  .menu{ 
+    display: none;
+  }
+
+  .mobile-nav{ 
+    height: 15%;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white ; 
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .mobile-menu{ 
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 100%;
+    justify-content: space-around;
+    position: absolute;
+    /* top: 10%; */
+    /* right: 10px; */
+    font-family: 'Roboto', sans-serif;
+    /* margin-right: 10px; */
+    background-color: white;
+    align-items: center;
+    border-radius: 5px;
+    
+  }
+
+  .search-input{ 
+    width: 200px;
+    font-size: 10px;
+  }
+
+  .search-buttons{
+    display: none;
+   
+  }
+
+  .mobile-search-buttons{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 40px;
+  }
+  .search-button{ 
+    height: 15px;
+    font-size: 10px;
+    background-color: white;
+  }
+
+  .rental-title{ 
+    font-size: 20px;
+  }
+
+  .menu-button{ 
+    display: flex;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .auth-box{ 
+    width: 100%;
+    height: 40%;
+  }
+  .auth-input{ 
+    justify-content: center;
+  }
+
+  .auth-p{ 
+    font-size: 17px;
+  }
+
+  .input-box{ 
+    width: 50%;
+    height: 15px;
+  }
+  .auth-button{
+    margin-left: 7px;
+    background-color: white;
+  }
+  .auth-title{ 
+    font-size: 30px;
+  }
+  .App{ 
+    background-position: initial;
+  }
 }

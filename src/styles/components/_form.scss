@@ -1,6 +1,6 @@
 .form{ 
     width: 80vw;
-    height: 160vh;
+    // height: 160vh;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@
 .create-post-pics{ 
     display: flex;
     width: 100%; 
-    height: 60vh;
+    // height: 60vh;
     justify-content: space-between;
     align-items: center;
 }
@@ -86,4 +86,48 @@
 .remove-picture{ 
     height: 10%;
     border-radius: 5px;
+}
+
+@media(max-width: 380px){
+.form-title{ 
+    font-size: 25px;
+}
+.make-model{ 
+    flex-direction: column;
+}
+.entry-box{ 
+    width: 200px;
+    height: 20px;
+}
+.hours-price{ 
+  flex-direction: column;
+}
+.description-form-input{
+    flex-direction: column;
+    width: 90%;
+}
+.description-entry-box{
+    width: 100%;
+}
+.create-post-pics{
+    flex-direction: column;
+    width: 100%;
+}
+.pic-box{ 
+    margin-bottom: 20px;
+    width: 100%;
+}
+.upload-preview{
+    width: 80%;
+    height:65%;
+    margin-bottom: 30px;
+}
+.dropzone{
+    margin-top: 20px;
+}
+.remove-picture{
+    margin-top: 30px;
+    background-color: white;
+    height: 20px;
+}
 }

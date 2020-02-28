@@ -24,8 +24,14 @@ const Posts = (props) => {
         <div className = 'posts'> 
             <div className = 'search-bar'>
                 <input className = 'search-input' placeholder = 'Enter Make, Model, or Username' {...search} />
+                <div className = 'search-buttons'>
                 <button className = 'search-button' onClick  = {() => searchPosts(search) }>Search</button> 
                 <button className='search-button' onClick = {reset}>Clear</button>
+                </div>
+                <div className = 'mobile-search-buttons'> 
+                    <button className = 'search-button' onClick  = {() => searchPosts(search) }>Search</button> 
+                    <button className='search-button' onClick = {reset}>Clear</button>
+                </div>
             </div>
 
             {props.posts && props.posts.map(element =>{ 
